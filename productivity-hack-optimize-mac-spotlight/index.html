@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Productivity Hack: Optimize Mac Spotlight</title>
+    <link rel="stylesheet" href="../assets/built/screen.css%3Fv=5067b19613.css">
+
+
+    <style>
+        :root {
+            --background-color: #131313
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast was taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Matt Webber: Dev + Entrepreneur">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Productivity Hack: Optimize Mac Spotlight">
+    <meta property="og:description" content="2026 Update: I&#x27;ve been having some issues with this on my macOS running Sequoia 15.7.1 and have slowly been going insane opening spotlight and typing &quot;spot&quot; to have &quot;Spotlight.app&quot; open (irony) instead of &quot;Spotify&quot;, no matter how many times I try the below... YMMV!
+
+If you&#x27;re like">
+    <meta property="og:url" content="https://mattwebber.me/productivity-hack-optimize-mac-spotlight/">
+    <meta property="og:image" content="https://mattwebber.me/content/images/size/w1200/2023/10/Screenshot-2023-10-31-at-11.19.24-AM.png">
+    <meta property="article:published_time" content="2023-10-31T15:48:58.000Z">
+    <meta property="article:modified_time" content="2026-01-07T17:15:39.000Z">
+    <meta property="article:publisher" content="https://www.facebook.com/ghost">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Productivity Hack: Optimize Mac Spotlight">
+    <meta name="twitter:description" content="2026 Update: I&#x27;ve been having some issues with this on my macOS running Sequoia 15.7.1 and have slowly been going insane opening spotlight and typing &quot;spot&quot; to have &quot;Spotlight.app&quot; open (irony) instead of &quot;Spotify&quot;, no matter how many times I try the below... YMMV!
+
+If you&#x27;re like">
+    <meta name="twitter:url" content="https://mattwebber.me/productivity-hack-optimize-mac-spotlight/">
+    <meta name="twitter:image" content="https://mattwebber.me/content/images/size/w1200/2023/10/Screenshot-2023-10-31-at-11.19.24-AM.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Matt Webber">
+    <meta name="twitter:site" content="@ghost">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="383">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Matt Webber: Dev + Entrepreneur",
+        "url": "https://mattwebber.me/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://mattwebber.me/favicon.ico",
+            "width": 48,
+            "height": 48
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Matt Webber",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/3380091d0be1b8a00f57ef40a15777f2?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://mattwebber.me/author/matt/",
+        "sameAs": []
+    },
+    "headline": "Productivity Hack: Optimize Mac Spotlight",
+    "url": "https://mattwebber.me/productivity-hack-optimize-mac-spotlight/",
+    "datePublished": "2023-10-31T15:48:58.000Z",
+    "dateModified": "2026-01-07T17:15:39.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://mattwebber.me/content/images/size/w1200/2023/10/Screenshot-2023-10-31-at-11.19.24-AM.png",
+        "width": 1200,
+        "height": 383
+    },
+    "description": "2026 Update: I&#x27;ve been having some issues with this on my macOS running Sequoia 15.7.1 and have slowly been going insane opening spotlight and typing &quot;spot&quot; to have &quot;Spotlight.app&quot; open (irony) instead of &quot;Spotify&quot;, no matter how many times I try the below... YMMV!\n\nIf you&#x27;re like me and use Spotlight for opening + focusing literally every and any application that you use, here&#x27;s a quick tip that I use to ensure that the application you need is only one or two keystrokes away.\n\nAs a developer, I",
+    "mainEntityOfPage": "https://mattwebber.me/productivity-hack-optimize-mac-spotlight/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.19">
+    <link rel="alternate" type="application/rss+xml" title="Matt Webber: Dev + Entrepreneur" href="../rss/index.html">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.64/umd/portal.min.js" data-i18n="true" data-ghost="https://mattwebber.me/" data-key="d9a1bc3ac69b0838a2b2e161a4" data-api="https://mattwebber.me/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="d9a1bc3ac69b0838a2b2e161a4" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://mattwebber.me/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://mattwebber.me/webmentions/receive/" rel="webmention">
+    <script defer src="../public/cards.min.js%3Fv=5067b19613"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=5067b19613.css">
+    <script defer src="../public/member-attribution.min.js%3Fv=5067b19613"></script><style>:root {--ghost-accent-color: #4d73a4;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-twilight.min.css">
+</head>
+
+<body class="post-template is-head-left-logo has-classic-feed">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    <a class="gh-head-logo" href="../index.html">
+                            Matt Webber: Dev + Entrepreneur
+                    </a>
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.5 17.5L12.5 12.5L17.5 17.5ZM14.1667 8.33333C14.1667 9.09938 14.0158 9.85792 13.7226 10.5657C13.4295 11.2734 12.9998 11.9164 12.4581 12.4581C11.9164 12.9998 11.2734 13.4295 10.5657 13.7226C9.85792 14.0158 9.09938 14.1667 8.33333 14.1667C7.56729 14.1667 6.80875 14.0158 6.10101 13.7226C5.39328 13.4295 4.75022 12.9998 4.20854 12.4581C3.66687 11.9164 3.23719 11.2734 2.94404 10.5657C2.65088 9.85792 2.5 9.09938 2.5 8.33333C2.5 6.78624 3.11458 5.30251 4.20854 4.20854C5.30251 3.11458 6.78624 2.5 8.33333 2.5C9.88043 2.5 11.3642 3.11458 12.4581 4.20854C13.5521 5.30251 14.1667 6.78624 14.1667 8.33333Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button>
+                <button class="gh-burger" aria-label="Toggle menu"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-about"><a href="https://mattwebber.me/about/">About</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.5 17.5L12.5 12.5L17.5 17.5ZM14.1667 8.33333C14.1667 9.09938 14.0158 9.85792 13.7226 10.5657C13.4295 11.2734 12.9998 11.9164 12.4581 12.4581C11.9164 12.9998 11.2734 13.4295 10.5657 13.7226C9.85792 14.0158 9.09938 14.1667 8.33333 14.1667C7.56729 14.1667 6.80875 14.0158 6.10101 13.7226C5.39328 13.4295 4.75022 12.9998 4.20854 12.4581C3.66687 11.9164 3.23719 11.2734 2.94404 10.5657C2.65088 9.85792 2.5 9.09938 2.5 8.33333C2.5 6.78624 3.11458 5.30251 4.20854 4.20854C5.30251 3.11458 6.78624 2.5 8.33333 2.5C9.88043 2.5 11.3642 3.11458 12.4581 4.20854C13.5521 5.30251 14.1667 6.78624 14.1667 8.33333Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="index.html#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    
+<main class="gh-main gh-outer">
+    <div class="gh-inner">
+            <article class="gh-article post">
+                    <header class="gh-article-header gh-canvas">
+                        <h1 class="gh-article-title">Productivity Hack: Optimize Mac Spotlight</h1>
+                            <figure class="gh-article-image">
+        <img
+            srcset="../content/images/size/w300/2023/10/Screenshot-2023-10-31-at-11.19.24-AM.png 300w,
+                   ../content/images/size/w720/2023/10/Screenshot-2023-10-31-at-11.19.24-AM.pngg 720w,
+                  ../content/images/size/w960/2023/10/Screenshot-2023-10-31-at-11.19.24-AM.pngng 960w,
+                 ../content/images/size/w1200/2023/10/Screenshot-2023-10-31-at-11.19.24-AM.pngpng 1200w,
+                ../content/images/size/w2000/2023/10/Screenshot-2023-10-31-at-11.19.24-AM.png.png 2000w,
+               ../content/images/2023/10/Screenshot-2023-10-31-at-11.19.24-AM.pngM.png"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            src="../content/images/size/w1200/2023/10/Screenshot-2023-10-31-at-11.19.24-AM.png"
+            alt="Productivity Hack: Optimize Mac Spotlight"
+        >
+    </figure>
+                    </header>
+
+                <section class="gh-content gh-canvas">
+                    <p><strong><u>2026 Update:</u><em> </em>I've been having some issues with this on my macOS running Sequoia 15.7.1 and have slowly been going insane opening spotlight and typing "spot" to have "Spotlight.app" open (irony) instead of "Spotify", no matter how many times I try the below... YMMV!</strong></p><p>If you're like me and use Spotlight for opening + focusing literally every and any application that you use, here's a quick tip that I use to ensure that the application you need is only one or two keystrokes away.</p><p>As a developer, I open Visual Studio Code <em>a lot </em>for my everyday work, but I like to keep my personal + hobby projects separate from my professional work.  I do this by keeping my personal projects in the "Visual Studio Code - Insiders" app instead of the flagship "Visual Studio Code".</p><p>What happens though is that when I open Spotlight and type "v" and hit enter, it will sometimes open one app over the other.  What I've found through trial and error is that Spotlight will default to whichever app (or folder, system setting, etc.) was opened in this manner in the past – that is, whatever I opened by typing <em>only the letter "v" and pressing Enter</em>.</p><p>So if I want Spotlight to default to opening the VSCode Insiders app with just "v" in Spotlight, I just arrow down to it and hit Enter.  And if I want the non-Insiders version to open with, say, "vi" in Spotlight, I'll just type "vi", arrow down, and press Enter.</p><p>I've configured Spotlight to operate this way for several frequently-used yet similarly-named applications and have found it to increase my productivity and reduce frustration.</p>
+                    <aside class="gh-article-meta">
+                        <div class="gh-article-meta-inner">
+                            <div class="gh-author-image-list instapaper_ignore">
+                                    <a class="gh-author-image" href="../author/matt/index.html">
+                                            <img src="https://www.gravatar.com/avatar/3380091d0be1b8a00f57ef40a15777f2?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Matt Webber">
+                                    </a>
+                            </div>
+                            <div class="gh-article-meta-wrapper">
+                                <div class="gh-author-name-list">
+                                    <a href="../author/matt/index.html">Matt Webber</a>
+                                </div>
+                                <time class="gh-article-date" datetime="2023-10-31">31 Oct 2023</time>
+                            </div>
+                        </div>
+                    </aside>
+                </section>
+
+
+                <footer class="gh-article-footer gh-canvas">
+                    <nav class="gh-navigation">
+                        <div class="gh-navigation-previous">
+                        </div>
+
+                        <div class="gh-navigation-middle"></div>
+
+                        <div class="gh-navigation-next">
+                                <a class="gh-navigation-link" href="../handy-little-js-script-scrape-top-level-reddit-comments/index.html">Next →</a>
+                        </div>
+                    </nav>
+                </footer>
+            </article>
+    </div>
+</main>
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+            <nav class="gh-foot-menu">
+                <ul class="nav">
+    <li class="nav-sign-up"><a href="index.html#/portal/">Sign up</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-copyright">
+                    Matt Webber: Dev + Entrepreneur © 2026. Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/built/main.min.js%3Fv=5067b19613"></script>
+
+
+
+</body>
+
+</html>
