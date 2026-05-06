@@ -10,7 +10,15 @@
 
     <style>
         :root {
-            --background-color: #131313
+            --background-color: #131313;
+            --update-box-background: #1e1e1e;
+        }
+
+        .update-box {
+            background-color: var(--update-box-background);
+            border-left: 4px solid var(--ghost-accent-color);
+            padding: 1em;
+            margin-bottom: 1.5em;
         }
     </style>
 
@@ -185,6 +193,10 @@ Slash Commands
                     </header>
 
                 <section class="gh-content gh-canvas">
+                                        <div class="update-box">
+                                            <p><strong>Update: 5/6/26</strong> They've had official documentation on this since around March, apparently. You can find the official list of slash commands <a href="https://code.claude.com/docs/en/commands">here</a>.</p>
+                                        </div>
+
                     <p>Wild that this doesn't exist somewhere official.  <a href="https://github.com/anthropics/claude-code/issues/6493?ref=mattwebber.me" rel="noreferrer">This dude tried, I guess.</a></p><p>Holler at me via <a href="mailto:mattwebbermail@gmail.com?subject=Claude%20Code%20CLI%20Flags" rel="noreferrer">email</a> or <a href="https://x.com/mattwebbertime?ref=mattwebber.me" rel="noreferrer">X/Twitter</a> if you have a list of CLI flags and I'll add it to this list.</p><h2 id="general-stuff">General Stuff</h2><pre><code class="language-bash">!echo "¡Hola, mundo!" # runs terminal/Bash commands</code></pre><h2 id="slash-commands">Slash Commands</h2><pre><code class="language-Bash">/add-dir  # Add a new working directory
 /agents  # Manage agent configurations
 /chrome  # Claude in Chrome (Beta) settings 
