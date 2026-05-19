@@ -12,6 +12,60 @@
         :root {
             --background-color: #131313
         }
+
+        .terminal-flight-divider {
+            margin: 1.5rem 0 2.5rem;
+            overflow: hidden;
+        }
+
+        .terminal-flight-divider svg {
+            display: block;
+            width: 100%;
+            height: clamp(120px, 16vw, 220px);
+        }
+
+        .terminal-flight-path {
+            fill: none;
+            stroke: none;
+        }
+
+        .terminal-flight-binary {
+            fill: #929292;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 16px;
+            font-weight: 700;
+            dominant-baseline: middle;
+        }
+
+        .terminal-flight-prompt {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 46px;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        .terminal-flight-prompt-home {
+            fill: #46c9fe;
+        }
+
+        .terminal-flight-prompt-arrow {
+            fill: #74ea2a;
+        }
+
+        .terminal-flight-prompt-cursor {
+            fill: #9c9d9d;
+            animation: terminal-cursor-blink 1s steps(1, end) infinite;
+        }
+
+        @keyframes terminal-cursor-blink {
+            0%, 49% {
+                opacity: 1;
+            }
+
+            50%, 100% {
+                opacity: 0;
+            }
+        }
     </style>
 
     <script>
@@ -120,11 +174,93 @@
         </script>
         <div class="gh-about-content">
             <div class="gh-about-content-inner">
-                    <h1 class="gh-about-primary">Welcome to my site</h1>
+                    <h1 class="gh-about-primary" style="font-family: 'Futura', sans-serif;"><span style="background: rgb(110, 86, 0); display: inline-block; line-height: 1.5; padding: 0 0.2em;">thoughts</span> <span> and </span> <span style="background: rgb(47, 47, 47); display: inline-block; line-height: 1.5; padding: 0 0.2em;">other things</span></h1>
             </div>
         </div>
     </div>
 </section>
+
+<!-- a playful terminal-flight divider -->
+<div class="terminal-flight-divider" aria-hidden="true">
+    <svg viewBox="0 0 1300 220" role="img" focusable="false" preserveAspectRatio="none">
+        <defs>
+            <path
+                id="terminal-flight-path"
+                class="terminal-flight-path"
+                d="M 20 150
+                   C 140 40, 240 40, 270 120
+                   C 300 200, 170 210, 160 120
+                   C 150 20, 340 10, 410 95
+                   C 500 205, 340 225, 360 120
+                   C 390 -10, 620 25, 610 125
+                   C 600 225, 760 200, 820 115
+                   C 900 5, 1030 65, 1090 110"
+            />
+        </defs>
+        <text class="terminal-flight-binary">
+            <textPath href="#terminal-flight-path" startOffset="0%">
+                <tspan rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+                <tspan dx="16" rotate="90">1</tspan>
+                <tspan dx="16" rotate="90">0</tspan>
+            </textPath>
+        </text>
+        <text class="terminal-flight-prompt" x="1110" y="122">
+            <tspan class="terminal-flight-prompt-home">~</tspan><tspan class="terminal-flight-prompt-arrow"> &gt;</tspan><tspan class="terminal-flight-prompt-cursor"> _</tspan>
+        </text>
+    </svg>
+</div>
 
 <main class="gh-main gh-outer">
     <div class="gh-feed gh-inner">
