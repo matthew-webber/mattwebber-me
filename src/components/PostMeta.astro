@@ -1,0 +1,19 @@
+---
+const { date } = Astro.props;
+const parsed = new Date(date);
+const display = new Intl.DateTimeFormat('en', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'UTC',
+}).format(parsed);
+---
+<aside class="post-meta">
+  <a class="author-avatar" href="/author/matt/" aria-label="Matt Webber">
+    <img src="https://www.gravatar.com/avatar/3380091d0be1b8a00f57ef40a15777f2?s=250&r=x&d=mp" alt="Matt Webber" />
+  </a>
+  <div>
+    <a class="author-name" href="/author/matt/">Matt Webber</a>
+    <time datetime={date}>{display}</time>
+  </div>
+</aside>

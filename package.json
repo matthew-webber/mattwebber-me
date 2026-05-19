@@ -1,5 +1,12 @@
 {
+  "type": "module",
   "scripts": {
-    "rss": "node generate-rss.js"
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.6",
+    "astro": "^6.3.5"
   }
 }

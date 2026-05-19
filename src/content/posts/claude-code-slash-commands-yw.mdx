@@ -1,0 +1,88 @@
+---
+title: Claude Code Slash Commands List
+slug: claude-code-slash-commands-yw
+date: 2026-02-24T00:47:43.000Z
+updated: 2026-02-24T23:57:05.000Z
+description: Wild that this doesn't exist somewhere official. A quick list of Claude Code slash commands.
+image: /content/images/2026/02/Untitled1.png
+cardImage: /content/images/size/w720/2026/02/Untitled1.png
+imageAlt: Claude Code Slash Commands List
+---
+
+import UpdateBox from '../../components/UpdateBox.astro';
+
+<UpdateBox>
+  <p><strong>Update: 5/6/26</strong> They've had official documentation on this since around March, apparently. You can find the official list of slash commands <a href="https://code.claude.com/docs/en/commands">here</a>.</p>
+</UpdateBox>
+
+Wild that this doesn't exist somewhere official. [This dude tried, I guess.](https://github.com/anthropics/claude-code/issues/6493?ref=mattwebber.me)
+
+Holler at me via [email](mailto:mattwebbermail@gmail.com?subject=Claude%20Code%20CLI%20Flags) or [X/Twitter](https://x.com/mattwebbertime?ref=mattwebber.me) if you have a list of CLI flags and I'll add it to this list.
+
+## General Stuff
+
+```bash
+!echo "¡Hola, mundo!" # runs terminal/Bash commands
+```
+
+## Slash Commands
+
+```bash
+/add-dir  # Add a new working directory
+/agents  # Manage agent configurations
+/chrome  # Claude in Chrome (Beta) settings
+/clear  # Clear conversation history and free up context
+/compact  # Clear conversation history but keep a summary in context. Optional: /compact [instructions for summarization]
+/config  # Open config panel
+/context  # Visualize current context usage as a colored grid
+/copy  # Copy Claude's last response to clipboard as markdown
+/desktop  # Continue the current session in Claude Desktop
+/diff  # View uncommitted changes and per-turn diffs
+/doctor  # Diagnose and verify your Claude Code installation and settings
+/exit  # Exit the REPL
+/export  # Export the current conversation to a file or clipboard
+/extra-usage  # Configure extra usage to keep working when limits are hit
+/fast  # Toggle fast mode (Opus 4.6 only)
+/feedback  # Submit feedback about Claude Code
+/fork  # Create a fork of the current conversation at this point
+/help  # Show help and available commands
+/hooks  # Manage hook configurations for tool events
+/ide  # Manage IDE integrations and show status
+/init  # Initialize a new CLAUDE.md file with codebase documentation
+/insights  # Generate a report analyzing your Claude Code sessions
+/install-github-app  # Set up Claude GitHub Actions for a repository
+/install-slack-app  # Install the Claude Slack app
+/keybindings  # Open or create your keybindings configuration file
+/login  # Sign in with your Anthropic account
+/logout  # Sign out from your Anthropic account
+/mcp  # Manage MCP servers
+/memory  # Edit Claude memory files
+/mobile  # Show QR code to download the Claude mobile app
+/model  # Set the AI model for Claude Code
+/output-style  # Set the output style directly or from a selection menu
+/permissions  # Manage allow & deny tool permission rules
+/plan  # Enable plan mode or view the current session plan
+/plugin  # Manage Claude Code plugins
+/pr-comments  # Get comments from a GitHub pull request
+/privacy-settings  # View and update your privacy settings
+/release-notes  # View release notes
+/remote-env  # Configure the default remote environment for teleport sessions
+/rename  # Rename the current conversation
+/resume  # Resume a previous conversation
+/review  # Review a pull request
+/rewind  # Restore the code and/or conversation to a previous point
+/sandbox  # Enter sandbox mode
+/security-review  # Complete a security review of the pending changes on the current branch
+/skills  # List available skills
+/stats  # Show your Claude Code usage statistics and activity
+/status  # Show Claude Code status including version, model, account, API connectivity, and tool statuses
+/statusline  # Set up Claude Code's status line UI
+/stickers  # Order Claude Code stickers
+/tasks  # List and manage background tasks
+/terminal-setup  # Enable Option+Enter key binding for newlines and visual bell
+/theme  # Change the theme
+/todos  # List current todo items
+/upgrade  # Upgrade to Max for higher rate limits and more Opus
+/usage  # Show plan usage limits
+/vim  # Toggle between Vim and Normal editing modes
+```

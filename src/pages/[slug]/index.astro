@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostMeta from '../../components/PostMeta.astro';
+
+export async function getStaticPaths() {
+  const postModules = import.meta.glob('../../content/posts/*.mdx', { eager: true });
+  const posts = Object.values(postModules).map((post) => ({
+    frontmatter: post.frontmatter,
+    Content: post.default,
+  }));
+  const sorted = posts.sort((a, b) => new Date(a.frontmatter.date).valueOf() - new Date(b.frontmatter.date).valueOf());
+
+  return sorted.map((post, index) => ({
+    params: { slug: post.frontmatter.slug },
+    props: {
+      post,
+      previous: sorted[index - 1]?.frontmatter,
+      next: sorted[index + 1]?.frontmatter,
+    },
+  }));
+}
+
+const { post, previous, next } = Astro.props;
+const Content = post.Content;
+const publishedTime = new Date(post.frontmatter.date).toISOString();
+const modifiedTime = post.frontmatter.updated ? new Date(post.frontmatter.updated).toISOString() : publishedTime;
+---
+<BaseLayout
+  title={post.frontmatter.title}
+  description={post.frontmatter.description}
+  canonicalPath={`/${post.frontmatter.slug}/`}
+  image={post.frontmatter.image}
+  type="article"
+  bodyClass="post-template"
+  publishedTime={publishedTime}
+  modifiedTime={modifiedTime}
+>
+  <main class="post-page">
+    <article class="post-shell">
+      <header class="post-header">
+        <h1>{post.frontmatter.title}</h1>
+        {post.frontmatter.description && <p class="post-description">{post.frontmatter.description}</p>}
+        {post.frontmatter.image && (
+          <figure class="post-hero-image">
+            <img src={post.frontmatter.image} alt={post.frontmatter.imageAlt ?? post.frontmatter.title} />
+          </figure>
+        )}
+      </header>
+
+      <section class="post-content">
+        <Content />
+      </section>
+
+      <PostMeta date={post.frontmatter.date} />
+
+      <nav class="post-navigation" aria-label="Post navigation">
+        <div>
+          {previous && <a href={`/${previous.slug}/`}>&larr; {previous.title}</a>}
+        </div>
+        <div class="next">
+          {next && <a href={`/${next.slug}/`}>{next.title} &rarr;</a>}
+        </div>
+      </nav>
+    </article>
+  </main>
+</BaseLayout>

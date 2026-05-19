@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TerminalDivider from '../components/TerminalDivider.astro';
+
+const postModules = import.meta.glob('../content/posts/*.mdx', { eager: true });
+const posts = Object.values(postModules)
+  .map((post) => post.frontmatter)
+  .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+
+const formatDate = (date) => new Intl.DateTimeFormat('en', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'UTC',
+}).format(new Date(date));
+---
+<BaseLayout bodyClass="home-page">
+  <main>
+    <section class="home-hero">
+      <h1><mark>thoughts</mark> and <mark>other things</mark></h1>
+    </section>
+
+    <TerminalDivider />
+
+    <section class="post-feed" aria-label="Posts">
+      {posts.map((post) => (
+        <article class="post-card">
+          <a href={`/${post.slug}/`}>
+            {post.cardImage && (
+              <figure class="post-card-image">
+                <img src={post.cardImage} alt={post.imageAlt ?? post.title} loading="lazy" />
+              </figure>
+            )}
+            <div class="post-card-body">
+              <h2>{post.title}</h2>
+              {post.description && <p>{post.description}</p>}
+              <time datetime={post.date}>{formatDate(post.date)}</time>
+            </div>
+          </a>
+        </article>
+      ))}
+    </section>
+  </main>
+</BaseLayout>
