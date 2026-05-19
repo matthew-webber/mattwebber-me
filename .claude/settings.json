@@ -1,17 +1,17 @@
-{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node generate-rss.js && git add rss/index.html",
-            "if": "Bash(git commit *)",
-            "statusMessage": "Regenerating RSS feed..."
-          }
-        ]
-      }
-    ]
-  }
-}
+// {
+//   "hooks": {
+//     "PreToolUse": [
+//       {
+//         "matcher": "Bash",
+//         "hooks": [
+//           {
+//             "type": "command",
+//             "command": "node generate-rss.js && git add rss/index.html",
+//             "if": "Bash(git commit *)",
+//             "statusMessage": "Regenerating RSS feed..."
+//           }
+//         ]
+//       }
+//     ]
+//   }
+// }

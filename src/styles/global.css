@@ -165,15 +165,14 @@ pre {
 }
 
 .terminal-flight-divider {
-  width: min(var(--max), 100%);
   margin: 1.5rem auto 2.5rem;
   overflow: hidden;
-  padding-inline: clamp(1rem, 4vw, 3rem);
+  display: flex;
+  justify-content: center;
 }
 
 .terminal-flight-divider svg {
   display: block;
-  width: 50%;
   height: clamp(120px, 16vw, 220px);
 }
 
@@ -450,23 +449,117 @@ pre {
 }
 
 .post-navigation {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
   gap: 1rem;
-  width: min(var(--content), 100%);
+  max-width: var(--content);
+  width: 100%;
   margin: 2rem auto 0;
 }
 
+.post-navigation :is(.previous, .next) {
+  position: relative;
+}
+
 .post-navigation a {
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  position: relative;
+  display: block;
+  border-top: 1px solid var(--line);
   padding: 0.9rem 1rem;
   color: var(--text);
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: border-color 0.2s,
+              padding-left 0.3s ease-in-out,
+              padding-right 0.3s ease-in-out;
 }
 
 .post-navigation .next {
   text-align: right;
+}
+
+.post-navigation div {
+  max-width: 50%;
+  width: 100%;
+}
+
+/* Arrow pseudo-elements */
+.post-navigation .previous a::before,
+.post-navigation .next a::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 2rem;
+  height: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.post-navigation .previous a::before {
+  left: 0.9rem;
+  transform: translateY(-50%) translateX(-260%);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M32 5H6M10 1L4 5 10 9' stroke='%23f4f1e8' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.post-navigation .next a::after {
+  right: 0.9rem;
+  transform: translateY(-50%) translateX(260%);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5H26M22 1L28 5 22 9' stroke='%23f4f1e8' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+@media (hover: hover) {
+  .post-navigation .previous a:hover {
+    padding-left: 3.2rem;
+  }
+
+  .post-navigation .previous a:hover::before {
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .post-navigation .next a:hover {
+    padding-right: 3.2rem;
+  }
+
+  .post-navigation .next a:hover::after {
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .post-navigation .previous::after {
+    content: 'older';
+    position: absolute;
+    display: inline-block;
+    padding: 0 0.6rem;
+    right: 0;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    background-color: var(--bg);
+    color: var(--muted);
+    font-size: 0.85rem;
+    width: max-content;
+  }
+
+  .post-navigation .next::after {
+    content: 'newer';
+    position: absolute;
+    display: inline-block;
+    padding: 0 0.6rem;
+    left: 0;
+    top: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    background-color: var(--bg);
+    color: var(--muted);
+    font-size: 0.85rem;
+    width: max-content;
+  }
 }
 
 .author-page {
@@ -514,5 +607,13 @@ pre {
 
   .post-navigation .next {
     text-align: left;
+  }
+
+  .post-navigation .previous a:hover {
+    padding-left: 0.9rem;
+  }
+
+  .post-navigation .next a:hover {
+    padding-right: 0.9rem;
   }
 }

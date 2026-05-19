@@ -54,11 +54,11 @@ const modifiedTime = post.frontmatter.updated ? new Date(post.frontmatter.update
       <PostMeta date={post.frontmatter.date} />
 
       <nav class="post-navigation" aria-label="Post navigation">
-        <div>
-          {previous && <a href={`/${previous.slug}/`}>&larr; {previous.title}</a>}
+        <div class="previous">
+          {previous && <a href={`/${previous.slug}/`}>{previous.title}</a>}
         </div>
         <div class="next">
-          {next && <a href={`/${next.slug}/`}>{next.title} &rarr;</a>}
+          {next && <a href={`/${next.slug}/`}>{next.title}</a>}
         </div>
       </nav>
     </article>
