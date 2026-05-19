@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "rss": "node generate-rss.js"
+  }
+}
