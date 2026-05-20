@@ -30,6 +30,14 @@ npm install
 npm run dev
 ```
 
+To start Astro and open the local site in your browser automatically:
+
+```sh
+npm run dev
+```
+
+Astro keeps hot reload enabled during development and opens the actual local dev server URL, typically `http://localhost:4321/`.
+
 ## Publish
 
 Push to `main`. GitHub Actions builds Astro and deploys the `dist/` output to GitHub Pages.
