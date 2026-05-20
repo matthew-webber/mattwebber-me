@@ -307,7 +307,7 @@ pre {
   color: var(--text);
   font-family: "Libre Baskerville", Georgia, serif;
   font-size: clamp(2.6rem, 7vw, 5.2rem);
-  line-height: 1.08;
+  line-height: 1.09;
   letter-spacing: 0;
 }
 
