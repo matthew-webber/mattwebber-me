@@ -6,6 +6,7 @@ const {
   description = '||: travel, code, make music :||',
   canonicalPath = '/',
   image,
+  ogImage,
   type = 'website',
   bodyClass = '',
   publishedTime,
@@ -15,6 +16,7 @@ const {
 const site = Astro.site ?? new URL('https://mattwebber.me');
 const canonicalUrl = new URL(canonicalPath, site).toString();
 const imageUrl = image ? new URL(image, site).toString() : undefined;
+const socialImageUrl = (ogImage ?? image) ? new URL(ogImage ?? image, site).toString() : undefined;
 const fullTitle = title === 'Matt Webber: Dev + Entrepreneur'
   ? title
   : `${title} | Matt Webber`;
@@ -59,15 +61,17 @@ const schema = type === 'article'
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    {imageUrl && <meta property="og:image" content={imageUrl} />}
+    {socialImageUrl && <meta property="og:image" content={socialImageUrl} />}
+    {socialImageUrl && <meta property="og:image:width" content="1200" />}
+    {socialImageUrl && <meta property="og:image:height" content="630" />}
     {publishedTime && <meta property="article:published_time" content={publishedTime} />}
     {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
-    <meta name="twitter:card" content={imageUrl ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:card" content={socialImageUrl ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:url" content={canonicalUrl} />
-    {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+    {socialImageUrl && <meta name="twitter:image" content={socialImageUrl} />}
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>

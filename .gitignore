@@ -1,5 +1,6 @@
 node_modules/
 dist/
 .astro/
+_image-inbox/
 .DS_Store
 npm-debug.log*
