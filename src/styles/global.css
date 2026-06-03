@@ -155,9 +155,16 @@ pre {
 
 .home-hero mark {
   display: inline-block;
+  position: relative;
   padding: 0 0.12em;
   background: var(--mark);
   color: var(--text);
+}
+
+/* Lift the first line above the second so the 'g' descender
+   sits on top of the line below instead of being clipped by it. */
+.home-hero mark:first-of-type {
+  z-index: 1;
 }
 
 .home-hero mark:nth-of-type(2) {
