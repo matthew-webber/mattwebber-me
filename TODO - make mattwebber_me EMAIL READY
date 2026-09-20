@@ -1,0 +1,101 @@
+TODO - make mattwebber.me EMAIL READY
+ALSO...
+...
+.
+.
+..
+...
+"chillm"
+see Claude message 2/25/26
+
+The simplest, least-painful path is: keep your Ghost blog on the Linode VPS, but do NOT run your own mail server on it. Use a hosted email provider for “Matt@mycustomdomain.com”, and just point your domain’s DNS to that provider. This avoids deliverability headaches (IP reputation, rDNS/PTR, blocklists, port 25 issues).
+
+Here’s a clean, minimal walkthrough.
+	1.	Pick an email provider (recommended for “human mailbox”)
+Any of these will do the job well:
+
+	•	Google Workspace (Gmail UI, very common)
+	•	Microsoft 365 (Outlook UI)
+	•	Fastmail (simple, solid)
+	•	Proton Mail (privacy-oriented; requires their setup for custom domains)
+
+For “I just want a normal mailbox that works,” Fastmail / Google Workspace / Microsoft 365 are the usual “set it and forget it” options.
+	2.	Decide where DNS is managed
+You need to edit DNS for your domain somewhere (often: your registrar like Namecheap/GoDaddy, or Linode DNS Manager, or Cloudflare).
+You’ll be adding records. The provider will give you exact values.
+	3.	Add the required DNS records
+At minimum you’ll add:
+
+A) MX records (this enables receiving mail)
+Your provider will give 1–5 MX records like:
+	•	host/name: @ (or blank)
+	•	type: MX
+	•	priority: 10, 20, etc.
+	•	value: mail.provider.com
+
+Once MX is set, incoming email for matt@mycustomdomain.com will go to that provider, not your VPS.
+
+B) SPF record (authorizes who can send)
+	•	type: TXT
+	•	name: @
+	•	value: something like v=spf1 include:provider.com -all
+
+C) DKIM record (provider-specific TXT/CNAME)
+This is usually:
+	•	a TXT record on something like selector1._domainkey
+or sometimes a CNAME that points to provider DKIM.
+You copy/paste exactly what they give.
+
+D) DMARC record (recommended; improves deliverability)
+	•	type: TXT
+	•	name: _dmarc
+	•	value: start simple, e.g.
+v=DMARC1; p=none; rua=mailto:dmarc-reports@mycustomdomain.com; adkim=s; aspf=s; pct=100
+
+Notes:
+	•	“p=none” means “monitor only.” Later you can tighten to quarantine/reject after you’re confident SPF/DKIM are correct.
+	•	Some people skip DMARC at first; I recommend setting it early.
+
+	4.	Create the mailbox in the provider admin
+Inside the provider admin console:
+
+	•	Add your domain
+	•	Verify the domain (often by adding a TXT record)
+	•	Create the user/mailbox: matt@mycustomdomain.com
+	•	(Optional) Create aliases: hello@, support@, etc.
+
+	5.	Use it (webmail or email client)
+
+	•	Webmail: just sign in on their site/app.
+	•	Email client (Apple Mail/Outlook/etc.): the provider gives IMAP/SMTP settings.
+Most modern providers also support OAuth sign-in, which is smoother than app passwords.
+
+	6.	If Ghost needs to send emails (newsletters, password resets, etc.)
+This is separate from your personal mailbox.
+
+Two common options:
+
+Option A (simplest): Use the same provider’s SMTP submission
+	•	Configure Ghost to send via SMTP with:
+	•	SMTP host (provider)
+	•	port 587 (STARTTLS) or 465 (TLS)
+	•	username/password (or an “app password”)
+This is fine for low volume.
+
+Option B (best for transactional email): Use a dedicated sending service
+	•	Mailgun / SendGrid / Amazon SES, etc.
+You then add additional DNS records they provide (often: SPF/DKIM specific to that sender).
+This is best if you care about deliverability at scale, but it’s “one more service.”
+
+Important: Don’t send Ghost mail directly from the Linode IP using Postfix unless you enjoy fighting spam filters.
+	7.	Timing and verification
+DNS changes can take minutes to hours to fully propagate (depends on TTL and caching).
+Providers usually have a “Check DNS” / “Verify setup” button—use that.
+
+Common gotchas (so you don’t lose a day)
+	•	Leaving old MX records in place (you should remove old MX records unless you intentionally want multiple mail systems).
+	•	Adding multiple SPF TXT records at @ (SPF should be a single TXT record; merge includes).
+	•	Not enabling DKIM in the provider admin (adding record alone isn’t always enough).
+	•	Using “From: matt@domain” in Ghost without configuring SMTP or without DKIM → messages land in spam.
+
+If you tell me which provider you want to use (or if you already use something like Google Workspace), and where your DNS is hosted (registrar vs Linode vs Cloudflare), I’ll give you the exact record checklist and the safest “copy/paste” DMARC/SPF starting values.
