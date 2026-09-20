@@ -92,6 +92,7 @@ pre {
 .site-footer-inner,
 .home-hero,
 .post-feed,
+.about-blurb,
 .author-page {
   width: min(var(--max), 100%);
   margin-inline: auto;
@@ -135,8 +136,25 @@ pre {
 }
 
 .site-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   border-top: 1px solid var(--line);
   padding-block: 2rem;
+}
+
+.site-footer-nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.site-footer-nav a {
+  text-decoration: none;
+}
+
+.site-footer-nav a:hover {
+  color: var(--accent);
 }
 
 .home-hero {
@@ -569,6 +587,82 @@ pre {
   }
 }
 
+.about-blurb {
+  padding: 0 clamp(1rem, 4vw, 3rem) 5rem;
+}
+
+.about-blurb p {
+  max-width: var(--content);
+  margin: 0 0 1.25rem;
+  font-size: 1.05rem;
+}
+
+.about-refrain {
+  color: var(--muted);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem !important;
+}
+
+.about-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+}
+
+.about-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.about-links a span {
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+.about-links a:hover span {
+  transform: translateX(0.25rem);
+}
+
+.product-card > div,
+.product-card > a {
+  display: grid;
+  min-height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-kind {
+  margin: 0 !important;
+  color: var(--accent-2) !important;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+}
+
+.product-card .post-card-body {
+  gap: 0.6rem;
+}
+
+.product-detail {
+  color: var(--muted);
+  font-size: 0.9rem !important;
+}
+
+.product-status {
+  margin: auto 0 0 !important;
+  padding-top: 0.5rem;
+  color: var(--muted);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem !important;
+}
+
+.product-card > a:hover .product-status {
+  color: var(--accent);
+}
+
 .author-page {
   padding: clamp(2rem, 7vw, 5rem) clamp(1rem, 4vw, 3rem) 5rem;
 }
@@ -610,6 +704,12 @@ pre {
   .post-feed,
   .post-navigation {
     grid-template-columns: 1fr;
+  }
+
+  .site-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
   }
 
   .post-navigation .next {

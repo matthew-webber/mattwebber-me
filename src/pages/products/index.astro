@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TerminalDivider from '../../components/TerminalDivider.astro';
+import { products } from '../../data/products.js';
+---
+<BaseLayout
+  title="Products"
+  description="Small, sharp tools: a Stream Deck plugin for Fender Mustang amps and a pair of Chrome extensions for Facebook Marketplace."
+  canonicalPath="/products/"
+  bodyClass="products-page"
+>
+  <main>
+    <section class="home-hero">
+      <h1><mark>things</mark> I've <mark>built</mark></h1>
+    </section>
+
+    <TerminalDivider />
+
+    <section class="post-feed product-feed" aria-label="Products">
+      {products.map((product) => {
+        const Card = product.url ? 'a' : 'div';
+        const linkProps = product.url
+          ? { href: product.url, target: '_blank', rel: 'noopener noreferrer' }
+          : {};
+
+        return (
+          <article class="post-card product-card">
+            <Card {...linkProps}>
+              <div class="post-card-body">
+                <p class="product-kind">{product.kind}</p>
+                <h2>{product.name}</h2>
+                <p>{product.description}</p>
+                {product.detail && <p class="product-detail">{product.detail}</p>}
+                <p class="product-status">{product.status}</p>
+              </div>
+            </Card>
+          </article>
+        );
+      })}
+    </section>
+  </main>
+</BaseLayout>

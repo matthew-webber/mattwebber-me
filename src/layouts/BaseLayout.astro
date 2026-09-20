@@ -82,7 +82,8 @@ const schema = type === 'article'
           <a class="site-logo" href="/">Matt Webber: Dev + Entrepreneur</a>
           <nav class="site-nav" aria-label="Primary navigation">
             <a href="/">Home</a>
-            <a href="/rss/index.html">RSS</a>
+            <a href="/products/">Products</a>
+            <a href="/thoughts/">Thoughts</a>
           </nav>
         </div>
       </header>
@@ -91,7 +92,10 @@ const schema = type === 'article'
 
       <footer class="site-footer">
         <div class="site-footer-inner">
-          Matt Webber: Dev + Entrepreneur &copy; {new Date().getFullYear()}
+          <span>Matt Webber: Dev + Entrepreneur &copy; {new Date().getFullYear()}</span>
+          <nav class="site-footer-nav" aria-label="Footer navigation">
+            <a href="/rss/index.html">RSS</a>
+          </nav>
         </div>
       </footer>
     </div>
