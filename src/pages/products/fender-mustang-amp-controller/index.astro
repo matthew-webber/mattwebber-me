@@ -1,0 +1,323 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import productArtwork from '../../../assets/products/fender-mustang-amp-controller.png';
+
+const marketplaceUrl = 'https://marketplace.elgato.com/product/fender-mustang-amp-controller-d605330a-01cb-4098-a45c-340282b3e05c';
+---
+<BaseLayout
+  title="Fender Mustang Amp Controller"
+  description="Your amp. Within reach. Switch presets, shape your tone, and find your next favorite sound with Fender Mustang Amp Controller for Stream Deck."
+  canonicalPath="/products/fender-mustang-amp-controller/"
+  bodyClass="mustang-page"
+>
+  <main class="product-feature">
+    <a class="back-link" href="/products/"><span aria-hidden="true">←</span> All products</a>
+
+    <section class="product-hero" aria-labelledby="product-headline">
+      <div class="hero-copy">
+        <p class="product-name">Fender Mustang Amp Controller</p>
+        <h1 id="product-headline">Your amp.<br /><span>Within reach.</span></h1>
+        <p class="hero-description">
+          Switch sounds. Dial in your tone. Keep playing.
+          Bring your Fender Mustang’s controls to Stream Deck,
+          with a whole library of sounds to make your own.
+        </p>
+        <a class="marketplace-link" href={marketplaceUrl}>
+          Get it on Elgato Marketplace <span aria-hidden="true">↗</span>
+        </a>
+        <p class="hero-note">A Stream Deck plugin for Mac &amp; Windows</p>
+      </div>
+      <div class="hero-artwork">
+        <Image
+          src={productArtwork}
+          alt="Fender Mustang Amp Controller artwork: a miniature amp with glowing keys and four dials."
+          widths={[320, 480, 576]}
+          sizes="(max-width: 680px) 280px, (max-width: 1000px) 34vw, 380px"
+          width={576}
+          height={576}
+          format="webp"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Make more of your Mustang">
+      <div class="benefit">
+        <h2>Stay in the song.</h2>
+        <p>Your favorite presets, effects, and tuner, a key press away. Spend less time reaching for the amp and more time playing.</p>
+      </div>
+      <div class="benefit">
+        <h2>Get a feel for your tone.</h2>
+        <p>Shape gain, EQ, and effects from your Stream Deck. Use keys, or turn the dials on Stream Deck + for hands-on control.</p>
+      </div>
+      <div class="benefit">
+        <h2>Find your next favorite.</h2>
+        <p>Explore a curated library of sounds. Save your own, then gather them into crates for a set list, a session, or a mood.</p>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-heading">
+      <div>
+        <p class="eyebrow">Familiar amp. Fresh possibilities.</p>
+        <h2 id="closing-heading">Plug in. Play more.</h2>
+        <p>Connect your Mustang over USB. Make room for a little more music.</p>
+      </div>
+      <a class="text-link" href={marketplaceUrl}>Meet your amp’s new sidekick <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <div class="product-notes">
+      <p>Tested with Fender Mustang I (v1). <a href={marketplaceUrl}>Compatibility and setup on Marketplace <span aria-hidden="true">↗</span></a></p>
+      <p>Independent software. Not affiliated with or endorsed by Fender Musical Instruments Corporation.</p>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .product-feature {
+    width: min(var(--max), 100%);
+    margin-inline: auto;
+    padding: 2.5rem clamp(1rem, 4vw, 3rem) 3.5rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 44px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+
+  .back-link:hover,
+  .product-notes a:hover {
+    color: var(--text);
+  }
+
+  .product-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+    padding-block: 3rem 5rem;
+  }
+
+  .product-name {
+    margin: 0 0 1.3rem;
+    color: #91c8ed;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(2.7rem, 5.8vw, 4.6rem);
+    font-weight: 400;
+    line-height: 1.16;
+    letter-spacing: -0.045em;
+  }
+
+  h1 span {
+    color: #91c8ed;
+  }
+
+  .hero-description {
+    max-width: 28rem;
+    margin: 1.6rem 0 1.8rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+
+  .marketplace-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 48px;
+    padding: 0.8rem 1.1rem;
+    border: 1px solid #91c8ed;
+    border-radius: 6px;
+    background: #91c8ed;
+    color: #11202a;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background 160ms, border-color 160ms;
+  }
+
+  .marketplace-link:hover {
+    border-color: #b7ddf7;
+    background: #b7ddf7;
+  }
+
+  .hero-note {
+    margin: 0.85rem 0 0;
+    color: var(--muted);
+    font-size: 0.75rem;
+  }
+
+  .hero-artwork {
+    width: 100%;
+    max-width: 380px;
+    justify-self: end;
+  }
+
+  .hero-artwork img {
+    width: 100%;
+    border: 1px solid #263745;
+    border-radius: 22%;
+    box-shadow: 0 22px 60px -28px #000;
+  }
+
+  .benefits {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+    padding-block: 2.5rem 3.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .benefit h2 {
+    margin: 0 0 0.8rem;
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+
+  .benefit p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+
+  .closing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block: 2.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .eyebrow {
+    margin: 0 0 0.65rem;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+  }
+
+  .closing h2 {
+    margin: 0;
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: -0.035em;
+  }
+
+  .closing h2 + p {
+    max-width: 28rem;
+    margin: 0.8rem 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 44px;
+    color: #91c8ed;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .text-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .product-notes {
+    margin-top: 1.5rem;
+    color: var(--muted);
+    font-size: 0.7rem;
+    line-height: 1.8;
+  }
+
+  .product-notes p {
+    margin: 0.35rem 0;
+  }
+
+  .product-notes a {
+    text-underline-offset: 3px;
+  }
+
+  a:focus-visible {
+    outline: 2px solid #91c8ed;
+    outline-offset: 5px;
+    border-radius: 3px;
+  }
+
+  @media (max-width: 1000px) {
+    .product-hero {
+      gap: 2rem;
+    }
+
+    .benefits {
+      gap: 1.5rem;
+    }
+
+    .closing {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .product-feature {
+      padding-top: 2rem;
+    }
+
+    .product-hero {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding-block: 2rem 3rem;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 9vw, 3.7rem);
+    }
+
+    .hero-artwork {
+      max-width: 280px;
+      justify-self: center;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+    }
+
+    .benefits {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+      padding-block: 2rem;
+    }
+
+    .benefit p {
+      max-width: 30rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marketplace-link {
+      transition: none;
+    }
+  }
+</style>

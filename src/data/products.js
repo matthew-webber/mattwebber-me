@@ -1,11 +1,12 @@
 export const products = [
   {
-    name: 'Mustang Deck',
+    name: 'Fender Mustang Amp Controller',
     kind: 'Stream Deck plugin',
     description:
-      "Controls a Fender Mustang amplifier directly over USB — presets, tuner, amp and effect knobs, and a local preset library and editor — with no Fender FUSE required.",
-    detail: 'Keys and Stream Deck+ dials for presets, crates, and rigs, plus a curated catalog of community sounds.',
-    status: 'Coming soon',
+      'Your amp, within reach. Switch sounds, shape your tone, and explore a library of presets from Stream Deck.',
+    detail: 'For practice, recording, and the moments you just want to play.',
+    url: '/products/fender-mustang-amp-controller/',
+    status: 'Available now · Learn more →',
   },
   {
     name: 'Smartbrowse for Marketplace',

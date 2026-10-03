@@ -19,8 +19,9 @@ import { products } from '../../data/products.js';
     <section class="post-feed product-feed" aria-label="Products">
       {products.map((product) => {
         const Card = product.url ? 'a' : 'div';
+        const isExternal = product.url?.startsWith('https://');
         const linkProps = product.url
-          ? { href: product.url, target: '_blank', rel: 'noopener noreferrer' }
+          ? { href: product.url, ...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {}) }
           : {};
 
         return (
