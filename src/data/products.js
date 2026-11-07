@@ -4,7 +4,7 @@ export const products = [
     kind: 'Stream Deck plugin',
     description:
       'Your amp, within reach. Switch sounds, shape your tone, and explore a library of presets from Stream Deck.',
-    detail: 'For practice, recording, and the moments you just want to play.',
+    detail: 'For compatible Fender Mustang amps, including the Mustang LT25.',
     url: '/products/fender-mustang-amp-controller/',
     status: 'Available now · Learn more →',
   },
